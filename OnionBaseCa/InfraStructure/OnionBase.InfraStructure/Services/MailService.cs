@@ -37,7 +37,7 @@ namespace OnionBase.InfraStructure.Services
             mail.From = new(_configuration["Mail:Username"],"CaCollection",System.Text.Encoding.UTF8);
             SmtpClient smtp = new SmtpClient();
             smtp.Credentials = new NetworkCredential(_configuration["Mail:Username"], _configuration["Mail:Password"]);
-            smtp.Port = 587;
+            smtp.Port = 465;
             smtp.EnableSsl = true;
             smtp.Host = _configuration["Mail:Host"];
             await smtp.SendMailAsync(mail);

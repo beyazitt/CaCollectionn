@@ -45,6 +45,22 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.Google/6.0.14": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/6.0.14": {
         "type": "package",
         "compile": {
@@ -484,6 +500,21 @@
         "lib/netstandard2.0/MediatR.Contracts.xml",
         "mediatr.contracts.2.0.1.nupkg.sha512",
         "mediatr.contracts.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Google/6.0.14": {
+      "sha512": "FSOnDWWd6R/RHJeIPUqVHVFz6Be+8SVg7/pewnBjBMlINeCunzxbCZ7jWH2GxeB8dmXTiMEn7bq3eAxmpVqmDw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/6.0.14",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.6.0.14.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/6.0.14": {
@@ -977,6 +1008,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "MediatR >= 12.1.1",
+      "Microsoft.AspNetCore.Authentication.Google >= 6.0.14",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.14",
       "Microsoft.EntityFrameworkCore >= 6.0.14",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.14",
@@ -990,11 +1022,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj",
       "projectName": "OnionBase.Domain",
-      "projectPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj",
+      "projectPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Domain\\obj\\",
+      "outputPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1031,6 +1063,10 @@
           "MediatR": {
             "target": "Package",
             "version": "[12.1.1, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "[6.0.14, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
@@ -1069,7 +1105,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,27 @@
+﻿.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #57081a;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    color: #57081a;
+    position: fixed; /* Sabit konum */
+    top: 50%;
+    left: 50%;
+    margin-top: -25px; /* Çevresel konumlandırma */
+    margin-left: -25px;
+    z-index: +3;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,92 +1,484 @@
-﻿@using OnionBase.Domain.Entities;
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-@model List<Product>
-<style>
-    #urunler-main {
-        position: absolute;
-        top: 10%;
-        left: 15%;
-        right: 15%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    #message {
-        position: absoulte;
-        top: 50%;
-        left: 15%;
-        right: 15%;
-    }
-
-    .card {
-        margin: 20px;
-    }
-</style>
-
-<div class="container">
+﻿@using OnionBase.Presentation.ViewModels
+@model AllProductsIndexViewModel
+<div class="container mt-5">
     <div class="row">
 
-        @foreach (var her in Model)
+        @foreach (var product in Model.Products)
         {
-            @if (her.Stock != 0)
+            @if (product.TotalStock != 0)
             {
-                <div class="col-md-8">
-                    <div class="card" style="width: 18rem;">
-                        <img id="@her.ProductCode" class="card-img-top" src="data:image/jpeg;base64,@her.Image" alt="Card image cap">
-                        <div class="card-body" style="display: flex;flex-direction:column;">
-                            <h5 class="card-title">@her.ProductName</h5>
-                            <p class="card-text">@her.ProductColor</p>
-                            <span class="product-code">#@her.ProductCode</span>
-                            @*                    <input type="hidden" name="ProductId" value="@her.ProductId" />*@
-                            <a href="@Url.Action("OrderOrQuestion", "AllProducts", new { ProductCode = her.ProductCode})" class="btn btn-dark message-button">Sipariş Ver</a>
-                            <br>
-                            <button type="button" class="btn btn-dark" data-mdb-toggle="modal" data-mdb-target="#modal-@her.ProductCode" itemid="@her.ProductCode">
-                                Tam Ekran
-                            </button>
+                <div class="col-md-8 mb-4">
+                    <div class="card shadow">
+                        <img id="@product.ProductCode" class="card-img-top" src="data:image/jpeg;base64,@product.Image" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@product.ProductName</h5>
+                            @if(Model.fromVariant == false)
+                            {
+                                <p class="card-text">
+                                    @if (Model.forColor == true)
+                                    {
+                                        <h5>Renk seçenekleri:</h5>
+                                        <ul style="list-style-type: none; padding: 0;">
+                                            @{
+                                                var listedColors = new HashSet<string>();
+                                                foreach (var x in product.ProductVariants)
+                                                {
+                                                    if (x.ProductId == product.ProductId && !listedColors.Contains(x.Color)) // Eğer bu renk daha önce listelenmemişse
+                                                    {
+                                                        listedColors.Add(x.Color); // Renk listesine ekle
+                                                        <li style="display: inline-block; margin-right: 10px;">
+
+                                                            @if(x.Color == Model.selectedColor){
+                                                                <a style="display:flex; flex-direction:column;" href="@Url.Action("ProductDetail", "AllProducts", new { ProductId = x.ProductId, Color = x.Color })">
+                                                                    <div style="width: 20px; height: 20px; background-color: @x.Color; border-radius:4px; border-color:black;"></div>
+                                                                    <div style="color:#57081a;">&#8593;</div>
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="@Url.Action("ProductDetail", "AllProducts", new { ProductId = x.ProductId, Color = x.Color })">
+                                                                    <div style="width: 20px; height: 20px; background-color: @x.Color; border-radius:2px; border-color:wheat;"></div>
+                                                                </a>
+                                                            }
+
+                                                        </li>
+                                                        // Renk adını yazdır (Örnek: x.Color.Name)
+                                                    }
+                                                }
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <h5>Renk seçenekleri:</h5>
+                                        <ul style="list-style-type: none; padding: 0;">
+                                            @{
+                                                var listedColors = new HashSet<string>();
+                                                foreach (var x in product.ProductVariants)
+                                                {
+                                                    if (x.ProductId == product.ProductId && !listedColors.Contains(x.Color)) // Eğer bu renk daha önce listelenmemişse
+                                                    {
+                                                        listedColors.Add(x.Color); // Renk listesine ekle
+                                                        <li style="display: inline-block; margin-right: 10px;">
+
+                                                            @if (x.Color == Model.selectedColor)
+                                                            {
+                                                                <a style="display:flex; flex-direction:column;" href="@Url.Action("ProductDetail", "AllProducts", new { ProductId = x.ProductId, Color = x.Color })">
+                                                                    <div style="width: 20px; height: 20px; background-color: @x.Color; border-radius:4px; border-color:black;"></div>
+                                                                    <div style="color:#57081a;">&#8593;</div>
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="@Url.Action("ProductDetail", "AllProducts", new { ProductId = x.ProductId, Color = x.Color })">
+                                                                    <div style="width: 20px; height: 20px; background-color: @x.Color; border-radius:2px; border-color:wheat;"></div>
+                                                                </a>
+                                                            }
+
+                                                        </li>
+                                                        // Renk adını yazdır (Örnek: x.Color.Name)
+                                                    }
+                                                }
+                                            }
+                                        </ul>
+                                    }
+
+                                    <br />
+
+                                    @if (Model.forSize == true)
+                                    {
+                                        <h5>Beden seçenekleri:</h5>
+                                        <ul>
+                                            @{
+                                                var listedSizes = new HashSet<string>();
+                                                foreach (var x in product.ProductVariants)
+                                                {
+                                                    if (x.ProductId == product.ProductId && !listedSizes.Contains(x.Size)) // Eğer bu renk daha önce listelenmemişse
+                                                    {
+                                                        listedSizes.Add(x.Size); // Renk listesine ekle
+                                                        <li>
+                                                            @if (x.Size == Model.selectedSize)
+                                                            {
+                                                                <a style="color:#57081a; display:flex; flex-direction:row;" href="@Url.Action("ProductDetail", "AllProducts", new { ProductId = x.ProductId, Color = x.Size })">
+                                                                    <div style="width: 20px; height: 20px;border-radius:4px; border-color:black;">@x.Size</div>
+                                                                    <div style="color:#57081a">&#8592;</div>
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a style="color:black" href="@Url.Action("ProductDetail", "AllProducts", new { ProductId = x.ProductId, Color = x.Size })">
+                                                                    <div style="width: 20px; height: 20px; border-radius:2px; border-color:wheat;">@x.Size</div>
+                                                                </a>
+                                                            }
+                                                        </li>
+                                                        // Renk adını yazdır (Örnek: x.Color.Name)
+                                                    }
+                                                }
+                                            }
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <h5>Beden seçenekleri:</h5>
+                                        <ul>
+                                            @{
+                                                var listedSizes = new HashSet<string>();
+                                                foreach (var x in product.ProductVariants)
+                                                {
+                                                    if (x.ProductId == product.ProductId && !listedSizes.Contains(x.Size)) // Eğer bu renk daha önce listelenmemişse
+                                                    {
+                                                        listedSizes.Add(x.Size); // Renk listesine ekle
+                                                        <li>
+                                                            @if (x.Size == Model.selectedSize)
+                                                            {
+                                                                <a style="color:#57081a; display:flex; flex-direction:row;" href="@Url.Action("ProductDetail", "AllProducts", new { ProductId = x.ProductId, Color = x.Size })">
+                                                                    <div style="width: 20px; height: 20px; border-radius:4px; border-color:black;">@x.Size  &#8592;</div>
+                                                                    <div style="color:#57081a">&#8592;</div>
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a style="color:black" href="@Url.Action("ProductDetail", "AllProducts", new { ProductId = x.ProductId, Color = x.Size })">
+                                                                    <div style="width: 20px; height: 20px; border-radius:2px; border-color:wheat;">@x.Size</div>
+                                                                </a>
+                                                            }
+                                                        </li>
+                                                        // Renk adını yazdır (Örnek: x.Color.Name)
+                                                    }
+                                                }
+                                            }
+                                        </ul>
+                                    }
+                                </p>
+                            }
+                            @if (Model.selectedColor != null)
+                            {
+                                <button class="btn btn-primary btn-sm float-end addToCartColor" data-product-id="@product.ProductId.ToString()">Sepete Ekle</button>
+                            }
+                            @if(Model.selectedSize != null)
+                            {
+                                <button class="btn btn-primary btn-sm float-end addToCartSize" data-product-id="@product.ProductId.ToString()">Sepete Ekle</button>
+                            }
+                            @if(Model.selectedColor == null && Model.selectedSize == null)
+                            {
+                                <button class="btn btn-primary btn-sm float-end addToCart" data-product-id="@product.ProductId.ToString()">Sepete Ekle</button>
+                            }
+
+
+
+
+                            
                             @if (User.IsInRole("admin"))
                             {
-                                <a id="her.ProductName" href="@Url.Action("Delete", "AllProducts", new { ProductName = her.ProductName })" class="text-white-50 fw-bold"><font color="red">Ürünü Sil</font></a>
-
+                                <a href="@Url.Action("Delete", "AllProducts", new { ProductName = product.ProductName })" class="text-danger mt-3 d-block">Ürünü Sil</a>
                             }
                         </div>
                     </div>
-                    <div id="@her.ProductCode">
-                        <div class="modal fade" id="modal-@her.ProductCode" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header" style="display: flex; ">
-                                        <h5 class="modal-title" id="exampleModalLabel">@her.ProductName</h5>
-                                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <img id="@her.ProductCode" class="card-img-top" src="data:image/jpeg;base64,@her.Image" alt="Card image cap">
-                                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="border rounded p-3 shadow">
+                        <h2>Ürün Açıklaması</h2>
+                        <p>@Html.Raw(product.ProductDescription)</p>
+                        <p>Fiyat: @product.Price</p>
+                        
+                        <!-- Attributes list -->
+                        
+                        
+                    </div>
+                </div>
+
+                @if (Model.selectedColor != null)
+                {
+                    <div class="modal fade" id="sizeSelectionModal_@product.ProductId" tabindex="-1" role="dialog" aria-labelledby="sizeSelectionModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="sizeSelectionModalLabel">Beden Seçimi</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="sizeSelectionForm">
+                                        <div class="form-group">
+                                            <label for="sizeSelect">Beden Seçin:</label>
+                                            <select class="form-control" id="sizeSelect_@product.ProductId" name="selectedSize_@product.ProductId">
+                                                <!-- Beden seçeneklerini burada dinamik olarak doldurabilirsiniz -->
+                                                @if (product.ProductVariants != null)
+                                                {
+                                                    @foreach (var az in product.ProductVariants)
+                                                    {
+                                                        @if (az.Stock != 0)
+                                                        {
+                                                            <option>@az.Size</option>
+                                                        };
+
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                    <button type="button" class="btn btn-primary addToCartSizeButton" data-product-id="@product.ProductId.ToString()" data-selected-color="@Model.selectedColor">Sepete Ekle</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                }
+                @if(Model.selectedSize != null)
+                {
+                    <div class="modal fade" id="colorSelectionModal_@product.ProductId" tabindex="-1" role="dialog" aria-labelledby="colorSelectionModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="colorSelectionModalLabel">Beden Seçimi</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="sizeSelectionForm">
+                                        <div class="form-group">
+                                            <label for="colorSelect">Beden Seçin:</label>
+                                            <select class="form-control" id="colorSelect_@product.ProductId" name="selectedColor_@product.ProductId">
+                                                <!-- Beden seçeneklerini burada dinamik olarak doldurabilirsiniz -->
+                                                @if (product.ProductVariants != null)
+                                                {
+                                                    @foreach (var az in product.ProductVariants)
+                                                    {
+                                                        @if (az.Stock != 0)
+                                                        {
+                                                            <option>@az.Color</option>
+                                                        };
 
-                </div>
-                <div class="col-md-4" style="display: flex; flex-direction: column; justify-content: center;">
-                    <h2>Ürün Açıklaması</h2>
-                    <p>@her.ProductDescription</p>
-                    <p>@her.Price</p>
-                </div>
-            }
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                    <button type="button" class="btn btn-primary addToCartColorButton" data-product-id="@product.ProductId.ToString()" data-selected-size="@Model.selectedSize">Sepete Ekle</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if(Model.selectedColor == null && Model.selectedSize == null)
+                {
+                    <div class="modal fade" id="SelectionModal_@product.ProductId" tabindex="-1" role="dialog" aria-labelledby="SelectionModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="SelectionModalLabel">Beden Seçimi</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="SelectionForm">
+                                        <div class="form-group">
+                                            <label for="sizeSelect">Beden Seçin:</label>
+                                            <select class="form-control" id="sizeSelect_@product.ProductId" name="selectedSize_@product.ProductId">
+                                                <!-- Beden seçeneklerini burada dinamik olarak doldurabilirsiniz -->
+                                                @if (product.ProductVariants != null)
+                                                {
+                                                    @foreach (var az in product.ProductVariants)
+                                                    {
+                                                        @if (az.Stock != 0)
+                                                        {
+                                                            <option>@az.Size</option>
+                                                        };
+
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="colorSelect">Beden Seçin:</label>
+                                            <select class="form-control" id="colorSelect_@product.ProductId" name="selectedColor_@product.ProductId">
+                                                <!-- Beden seçeneklerini burada dinamik olarak doldurabilirsiniz -->
+                                                @if (product.ProductVariants != null)
+                                                {
+                                                    @foreach (var az in product.ProductVariants)
+                                                    {
+                                                        @if (az.Stock != 0)
+                                                        {
+                                                            <option>@az.Color</option>
+                                                        };
+
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                    <button type="button" class="btn btn-primary addToCartButton" data-product-id="@product.ProductId.ToString()">Sepete Ekle</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
 
 
         }
+        }
     </div>
-
-
 </div>
 
 
 
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" class="img-fluid modal-image" alt="Zoomed Image">
+            </div>
+        </div>
+    </div>
+</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var selectedSize;
+        var selectedColor;
+        var productId; // productId'yi burada tanımlayın
+
+        $('.addToCartColor').click(function () {
+            productId = $(this).data('product-id');
+            
+            $('#sizeSelectionModal_' + productId).modal('show');
+        });
+
+        $('.addToCartSize').click(function () {
+            productId = $(this).data('product-id');
+            
+            $('#colorSelectionModal_' + productId).modal('show');
+        });
+
+        $('.addToCart').click(function () {
+            productId = $(this).data('product-id');
+            $('#SelectionModal_' + productId).modal('show');
+
+        });
+
+
+        $('.addToCartSizeButton').click(function () {
+            selectedSize = $('#sizeSelect_' + productId).val();
+            selectedColor = $(this).data('selected-color');
+            // AJAX isteğinizi burada yapabilirsiniz
+            $.ajax({
+                url: '/AllProducts/AddToCart',
+                type: 'POST',
+                data: { id: productId, size: selectedSize, color: selectedColor },
+                success: function (response) {
+                    alert("Ürün sepete eklendi!");
+                    $('#sizeSelectionModal_' + productId).modal('hide');
+                    $('#colorSelectionModal_' + productId).modal('hide');
+                },
+                error: function (error) {
+                    console.error('AJAX error:', error);
+                }
+            });
+        });
+
+        $('.addToCartColorButton').click(function () {
+            selectedColor = $('#colorSelect_' + productId).val();
+            selectedSize = $(this).data('selected-size');
+            // AJAX isteğinizi burada yapabilirsiniz
+            $.ajax({
+                url: '/AllProducts/AddToCart',
+                type: 'POST',
+                data: { id: productId, size: selectedSize, color: selectedColor },
+                success: function (response) {
+                    alert("Ürün sepete eklendi!");
+                    $('#sizeSelectionModal_' + productId).modal('hide');
+                    $('#colorSelectionModal_' + productId).modal('hide');
+                },
+                error: function (error) {
+                    console.error('AJAX error:', error);
+                }
+            });
+        });
+
+        $('.addToCartButton').click(function () {
+            selectedColor = $('#colorSelect_' + productId).val();
+            selectedSize = $('#sizeSelect_' + productId).val();
+            // AJAX isteğinizi burada yapabilirsiniz
+            $.ajax({
+                url: '/AllProducts/AddToCart',
+                type: 'POST',
+                data: { id: productId, size: selectedSize, color: selectedColor },
+                success: function (response) {
+                    alert("Ürün sepete eklendi!");
+                    $('#sizeSelectionModal_' + productId).modal('hide');
+                    $('#colorSelectionModal_' + productId).modal('hide');
+                },
+                error: function (error) {
+                    console.error('AJAX error:', error);
+                }
+            });
+        });
+
+        // Modal kapatıldığında yapılacak işlemler burada yer alır
+        $('#sizeSelectionModal_' + productId).on('hidden.bs.modal', function (e) {
+            $('#sizeSelect_' + productId).empty();
+        });
+
+        $('#colorSelectionModal_' + productId).on('hidden.bs.modal', function (e) {
+            $('#colorSelect_' + productId).empty();
+        });
+
+        $('#SelectionModal_' + productId).on('hidden.bs.modal', function (e) {
+            $('#Select_' + productId).empty();
+        });
+
+        // Close butonuna tıklanınca modal kapatılacak
+        $('.close').click(function () {
+            $('#sizeSelectionModal_' + productId).modal('hide');
+        });
+
+        $('.close').click(function () {
+            $('#colorSelectionModal_' + productId).modal('hide');
+        });
+
+        $('.close').click(function () {
+            $('#SelectionModal_' + productId).modal('hide');
+        });
+    
+        // Modal dışına tıklandığında modal kapatılacak
+        $('.modal-backdrop').click(function () {
+            $('#sizeSelectionModal_' + productId).modal('hide');
+        });
+
+        $('.modal-backdrop').click(function () {
+            $('#colorSelectionModal_' + productId).modal('hide');
+        });
+
+        $('.modal-backdrop').click(function () {
+            $('#SelectionModal_' + productId).modal('hide');
+        });
+    });
+
+</script>
+<script>
+    $(document).ready(function () {
+        $('.card-img-top').click(function () {
+            var src = $(this).attr('src');
+            $('.modal-image').attr('src', src);
+            $('#imageModal').modal('show');
+        });
+    });
+
+</script>

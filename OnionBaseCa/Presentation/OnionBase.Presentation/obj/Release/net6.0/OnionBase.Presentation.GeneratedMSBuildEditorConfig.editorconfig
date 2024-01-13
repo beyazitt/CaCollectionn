@@ -9,121 +9,179 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OnionBase.Presentation
 build_property.RootNamespace = OnionBase.Presentation
-build_property.ProjectDir = C:\Users\USER\Desktop\main-proj\OnionBaseCa\Presentation\OnionBase.Presentation\
+build_property.ProjectDir = C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Presentation\OnionBase.Presentation\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\USER\Desktop\main-proj\OnionBaseCa\Presentation\OnionBase.Presentation
+build_property.MSBuildProjectDirectory = C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Presentation\OnionBase.Presentation
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/CreateRole.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/CreateRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGVSb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/ForgetPassword.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/ForgetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3JnZXRQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/Login.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/MyOrders.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/MyOrders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNeU9yZGVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/Profile.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/ProfileUpdate.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/ProfileUpdate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/Register.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/RoleManagment.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/RoleManagment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSb2xlTWFuYWdtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/SmsVerification.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Account/SmsVerification.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTbXNWZXJpZmljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/AddCampaign.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcQWRkQ2FtcGFpZ24uY3NodG1s
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/AddProductStep1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcQWRkUHJvZHVjdFN0ZXAxLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/AddProduct.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcQWRkUHJvZHVjdC5jc2h0bWw=
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/AddProductStep2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcQWRkUHJvZHVjdFN0ZXAyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/Admin.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/AddProductStep3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcQWRkUHJvZHVjdFN0ZXAzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/Admin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/Index.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/ArrangeProducts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcQXJyYW5nZVByb2R1Y3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/Chart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcQ2hhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/OrderOrQuestion.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/OrderDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcT3JkZXJEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/OrderOrQuestion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcT3JkZXJPclF1ZXN0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/Payment.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/Orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/Payment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcUGF5bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/PaymentConfirmation.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/PaymentConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcUGF5bWVudENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/ProductDetail.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/ProductDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcUHJvZHVjdERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Home/Index.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/ProductVariantDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcUHJvZHVjdFZhcmlhbnREZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/ShippingStage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcU2hpcHBpbmdTdGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/AllProducts/ShoppingCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsUHJvZHVjdHNcU2hvcHBpbmdDYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Home/Contract.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250cmFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Home/DeliveryAndReturn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZWxpdmVyeUFuZFJldHVybi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Home/Privacy.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Home/Message.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZXNzYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/Error.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_LayoutAdmin.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_LayoutAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_LayoutWithoutNavbar.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_LayoutWithoutNavbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRXaXRob3V0TmF2YmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_PaginationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYWdpbmF0aW9uUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/_ViewImports.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/_ViewStart.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/main-proj/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_Layout.cshtml]
+[C:/Users/USER/Desktop/main-proj-yedek/01.10.2023/OnionBaseCa/Presentation/OnionBase.Presentation/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-g3faorg4ov

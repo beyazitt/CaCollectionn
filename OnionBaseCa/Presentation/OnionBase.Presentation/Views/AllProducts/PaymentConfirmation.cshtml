@@ -1,47 +1,102 @@
-﻿@using OnionBase.Domain.Entities;
-@using OnionBase.Presentation.DTOs;
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using OnionBase.Presentation.DTOs
+
 @model PaymentConfirmationDTO
 
+<div class="container mt-5">
+    <h3>Order Details</h3>
 
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>OrderId</th>
+                <th>CreatedTime</th>
+                <th>CustomerId</th>
+                <th>Phone</th>
+                <th>Kargo Takip Kodu</th>
+                <th>Confirm</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @TempData["Message"]
+                </div>
+            }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>OrderId</th>
-            <th>CreatedTime</th>
-            <th>CustomerId</th>
-            <th>ProductCode</th>
-            <th>Phone</th>
-            <th>Confirm</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (@TempData["Message"] != null)
-        {
-            <div class="alert alert-success" role="alert">
-                @TempData["Message"]
-            </div>
-        }
-        
-
-        @foreach (var person in Model.orders)
-        {
-            @using (Html.BeginForm("PaymentConfirmation", "AllProducts", new { OrderId = person.OrderId }, FormMethod.Post))
+            @foreach (var person in Model.orders)
             {
                 <tr>
                     <td>@person.OrderId</td>
                     <td>@person.CreatedTime</td>
-                    <td>@person.CustomerId</td>
-                    <td>@person.ProductCode</td>
-                    <td>@person.Phone</td>
-                    <td><button href="@Url.Action("PaymentConfirmation", "AllProducts", new { OrderId = person.OrderId })" type="submit">Onayla</button></td>
+                    <td>@person.UserId</td>
+                    <td>@person.OrderDetails.First().PhoneNumber</td>
+                    <td>
+                        @if (person.ShippingCode == null)
+                        {
+                            <form action="@Url.Action("AddShippingCode", "AllProducts", new { OrderId = person.OrderId })" method="post" class="shipping-code-form">
+                                <div class="input-group">
+                                    
+                                    <div class="input-group-append">
+                                        <input type="text" name="ShippingCode" class="form-control" />
+                                        <button type="submit" class="btn btn-success input-group-addon">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        }
+                        else
+                        {
+                            <p>Kargo takip kodunuz : <font style="color:blueviolet">@person.ShippingCode</font></p>
+                        }
+                    </td>
+                    <td>
+                        @if (person.confirmationRequest)
+                        {
+                            <button type="button" class="btn btn-primary" onclick="submitConfirmationForm('@person.OrderId')">
+                                Onayla
+                            </button>
+
+                        }
+
+                    </td>
                 </tr>
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    function submitConfirmationForm(orderId) {
+        console.log("Gönderilen OrderId: ", orderId);
+        var pcDTO = {
+            OrderId: orderId
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("PaymentConfirmationPost", "AllProducts")',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(pcDTO),
+            traditional: true,
+            dataType: 'json',
+            success: function (response) {
+                // İstek başarılı olduğunda burada bir işlem yap
+                alert("Başarılı: " + response.message);
+            },
+            error: function (xhr, status, error) {
+                console.log("XHR Response: ", xhr);
+                console.log("Status: ", status);
+                console.log("Error: ", error);
+                alert("Hata: " + xhr.responseText);
+            }
+
+        });
+    }
+
+
+</script>

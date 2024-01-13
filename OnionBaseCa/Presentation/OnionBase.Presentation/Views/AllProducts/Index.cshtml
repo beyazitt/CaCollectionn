@@ -1,72 +1,143 @@
-﻿@using OnionBase.Domain.Entities;
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using OnionBase.Presentation.ViewModels
 @{
+    Layout = "_Layout"; // Eğer bir layout sayfanız varsa buraya ekleyin.
 }
 
-@model List<Product>
-<style>
-    #urunler-main {
-        position: absolute;
-        top: 10%;
-        left: 15%;
-        right: 15%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+@model AllProductsIndexViewModel
 
-    #message {
-        position: absoulte;
-        top: 50%;
-        left: 15%;
-        right: 15%;
-    }
-
-    .card {
-        margin: 20px;
-    }
-</style>
-
-<div class="container">
+<div class="container mt-5">
     <div class="row">
 
-        @foreach (var her in Model)
+        @foreach (var her in Model.Products)
         {
-            @if (her.Stock != 0)
+            if (her.TotalStock != 0)
             {
-                <div class="col-md-4">
-                    <div class="card" style="width: 12rem;">
-                        <img id="@her.ProductCode" class="card-img-top" src="data:image/jpeg;base64,@her.Image" alt="Card image cap">
-                        <div class="card-body" style="display: flex;flex-direction:column;">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="data:image/jpeg;base64,@her.Image" alt="@her.ProductName">
+                        <div class="card-body">
                             <h5 class="card-title">@her.ProductName</h5>
-                            <p class="card-text">@her.ProductColor</p>
-                            <span class="product-code">#@her.ProductCode</span>
-                            @*                    <input type="hidden" name="ProductId" value="@her.ProductId" />*@
-                            <a href="@Url.Action("ProductDetail", "AllProducts", new { ProductCode = her.ProductCode})" class="btn btn-dark message-button">Detaylı Gör</a>
-                            <br>
-                            <button type="button" class="btn btn-dark" data-mdb-toggle="modal" data-mdb-target="#modal-@her.ProductCode" itemid="@her.ProductCode">
-                                Tam Ekran
-                            </button>
-                            @if (User.IsInRole("admin"))
-                            {
-                                <a id="her.ProductName" href="@Url.Action("Delete", "AllProducts", new { ProductName = her.ProductName })" class="text-white-50 fw-bold"><font color="red">Ürünü Sil</font></a>
+                            <p class="card-text">
+                                <strong>Renkler:</strong>
+                                @{
+                                    var listedColors = new HashSet<string>(); // Renkleri saklamak için HashSet oluşturun
+                                    foreach (var x in Model.ProductVariants)
+                                    {
+                                        if (x.ProductId == her.ProductId && !listedColors.Contains(x.Color)) // Renk daha önce listelenmemişse
+                                        {
+                                            listedColors.Add(x.Color); // Renk listesine ekle
+                                            @x.Color
+                                            // Renkleri yazdır
+                                        }
+                                    }
+                                }
+                            </p>
 
+                            <p class="card-text"><strong>Fiyat:</strong> @her.Price TL</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="@Url.Action("ProductDetail", "AllProducts", new { ProductCode = her.ProductCode })" class="btn btn-dark btn-sm">Detaylı Gör</a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a href="@Url.Action("Chart", "AllProducts", new { ProductId = her.ProductId })" class="btn btn-danger btn-sm float-end">Grafik</a>
                             }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a href="@Url.Action("Delete", "AllProducts", new { ProductName = her.ProductName })" class="btn btn-danger btn-sm float-end">Ürünü Sil</a>
+                            }
+                            <button class="btn btn-primary btn-sm float-end addToCart" data-product-id="@her.ProductId.ToString()">Sepete Ekle</button>
                         </div>
                     </div>
-                    
+                </div>
+
+                <!-- Modal için başlıkta her.ProductId kullanılacak -->
+                <div class="modal fade" id="sizeSelectionModal_@her.ProductId" tabindex="-1" role="dialog" aria-labelledby="sizeSelectionModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="sizeSelectionModalLabel">Beden Seçimi</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="sizeSelectionForm">
+                                    <div class="form-group">
+                                        <label for="sizeSelect">Beden Seçin:</label>
+                                        <select class="form-control" id="sizeSelect_@her.ProductId" name="selectedSize_@her.ProductId">
+                                            @foreach (var x in Model.ProductVariants)
+                                            {
+                                                if (x.ProductId == her.ProductId)
+                                                {
+                                                    <option>@x.Size</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                <button type="button" class="btn btn-primary addToCartButton" data-product-id="@her.ToString()">Sepete Ekle</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             }
-            
-
         }
     </div>
-
-
+    
 </div>
+@Html.Partial("_PaginationPartial")
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+<script>
+    $(document).ready(function () {
+        var selectedSize;
+        var productId; // productId'yi burada tanımlayın
+
+        $('.addToCart').click(function () {
+            productId = $(this).data('product-id');
+            $('#sizeSelectionModal_' + productId).modal('show');
+        });
+
+        $('.addToCartButton').click(function () {
+            selectedSize = $('#sizeSelect_' + productId).val();
+
+            // AJAX isteğinizi burada yapabilirsiniz
+            $.ajax({
+                url: '/AllProducts/AddToCart',
+                type: 'POST',
+                data: { id: productId, size: selectedSize },
+                success: function (response) {
+                    alert("Ürün sepete eklendi!");
+                    $('#sizeSelectionModal_' + productId).modal('hide');
+                },
+                error: function (error) {
+                    console.error('AJAX error:', error);
+                }
+            });
+        });
+
+        // Modal kapatıldığında yapılacak işlemler burada yer alır
+        $('#sizeSelectionModal_' + productId).on('hidden.bs.modal', function (e) {
+            $('#sizeSelect_' + productId).empty();
+        });
+
+        // Close butonuna tıklanınca modal kapatılacak
+        $('.close').click(function () {
+            $('#sizeSelectionModal_' + productId).modal('hide');
+        });
+
+        // Modal dışına tıklandığında modal kapatılacak
+        $('.modal-backdrop').click(function () {
+            $('#sizeSelectionModal_' + productId).modal('hide');
+        });
+    });
+
+</script>
 
 
 

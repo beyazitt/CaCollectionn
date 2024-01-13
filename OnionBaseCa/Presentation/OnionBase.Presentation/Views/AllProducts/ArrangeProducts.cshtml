@@ -1,0 +1,83 @@
+﻿@using OnionBase.Domain.Entities;
+@model List<Product>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ürün Id</th>
+            <th>Resim</th>
+            <th>Ürün Kodu</th>
+            <th>Güncelleme Tarihi</th>
+            <th>Ücret</th>
+            <th>QR Kod</th>
+            <th>Bedenler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+             <tr>
+                 <td>@user.ProductId</td>
+                 <td><img src="data:image/jpeg;base64,@user.Image" width="50" alt="@user.ProductName" /></td>
+                 <td>@user.ProductCode</td>
+                 <td>@user.UpdatedTime</td>
+                 <td>@user.Price</td>
+                <td><img src="~/img/qrcode.png" class="card-img-top qr-code" data-product-id="@user.ProductId" width="25" height="25" /></td>
+                 <td>
+                    <select id="bedenSelect_@user.ProductId">
+                        @if (user.ProductVariants != null)
+                        {
+                            @foreach (var her in user.ProductVariants)
+                            {
+                                <option value="@her.ProductVariantId">@her.Size</option>
+                            }
+                        }
+                    </select>
+
+                 </td>
+
+             </tr>
+         }
+    </tbody>
+</table>
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" class="img-fluid modal-image" alt="Zoomed Image">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $('.qr-code').click(function () {
+            var productId = $(this).data('product-id');
+            fetchQRCode(productId);
+        });
+    });
+
+    function fetchQRCode(productId) {
+        $.ajax({
+            type: "GET",
+            url: "/AllProducts/ProductDetailFromQr/" + productId,
+            xhrFields: {
+                responseType: 'blob' // Bu kısmı ekleyin
+            },
+            success: function (data) {
+                var url = URL.createObjectURL(data); // Blob'dan URL oluştur
+                $('.modal-image').attr('src', url); // Image elementine src olarak atama yap
+                $('#imageModal').modal('show'); // Modalı göster
+            },
+            error: function () {
+                alert("QR kodu yüklenirken bir hata oluştu.");
+            }
+        });
+    }
+
+
+
+
+</script>

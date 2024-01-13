@@ -7,6 +7,7 @@ using OnionBase.Application.Services;
 using OnionBase.Domain.Entities.Identity;
 using OnionBase.Persistance.Contexts;
 using OnionBase.Persistance.Repositories;
+using OnionBase.Persistance.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,14 +23,16 @@ namespace OnionBase.Persistance
             //services.AddDbContext<UserDbContext>(options =>
             //    options.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection")));
             services.AddDbContext<UserDbContext>(options =>
-                options.UseSqlServer("Server=sql-server-db;Database=OnionUser-Product;User Id=sa;Password=30071998-Bey@z!;"));
+                options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=OnionUser-Product;Trusted_Connection=True;Encrypt=False;TrustServerCertificate=False;"));
             //Console.WriteLine("//////////////////////////");
             //Console.WriteLine(Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection"));
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
             services.AddScoped<IProductReadRepository, ProductReadRepository>();
             services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
-            //services.AddSingleton<IProductService, ProductService>();
+            services.AddScoped<ViewService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IStockUpdateService, StockUpdateService>();
         }
     }
 }

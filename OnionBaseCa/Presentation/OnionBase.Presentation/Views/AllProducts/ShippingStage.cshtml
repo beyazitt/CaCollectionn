@@ -1,0 +1,40 @@
+﻿@* @using System.Security.Claims;
+@using OnionBase.Domain.Entities;
+@model List<OrderDetail> // Ürün listesi olarak varsayalım
+
+<div class="container mt-5">
+    <h3>Ürünler</h3>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Ürün Resmi</th>
+                    <th>Ürün Adı</th>
+                    <th>Rengi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td><img src="data:image/jpeg;base64,@product.Product.Image" width="50" alt="@product.Product.ProductName" /></td>
+                        <td>@product.Product.ProductName</td>
+                        <td>
+                            @if (product.Order.Shipping != true)
+                            {
+                                <p>Ürününüz Kargolanmadı</p>
+                            }
+                            else
+                            {
+                                <p>Ürününüz kargolandı. Kargo Takip kodunuz....</p>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+ *@

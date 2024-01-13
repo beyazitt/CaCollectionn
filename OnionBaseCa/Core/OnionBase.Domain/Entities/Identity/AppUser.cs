@@ -14,7 +14,6 @@ namespace OnionBase.Domain.Entities.Identity
         public bool IsAdmin { get; set; }
         public bool? SmsVerify { get; set; }
         public string? ProfileImage { get; set; }
-        public int sentCode { get; set; }
         public ICollection<Order> orders { get; set; }
         public AppUser() : base()
         {

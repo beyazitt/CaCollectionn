@@ -1,0 +1,162 @@
+﻿@using System.Security.Claims;
+@using OnionBase.Presentation.ViewModels;
+@model ShoppingCartViewModel
+
+<div class="container mt-5">
+    <h3>Sepetiniz</h3>
+
+    @if (Model != null)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Ürün Resmi</th>
+                    <th>Ürün Adı</th>
+                    <th>Kod</th>
+                    <th>Fiyat</th>
+                    <th>Adet</th>
+                    <th>Renk</th>
+                    <th>Beden</th>
+                    <th></th>
+                    <th></th> <!-- Silme işlemi için -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var her in Model.CartItems)
+                {
+                    <tr>
+                        <td><img src="data:image/jpeg;base64,@her.ProductVariant.Image" width="50" alt="@her.ProductVariant.ProductId" /></td>
+                        <td>@her.ProductVariant.Product.ProductName</td>
+                        <td>@her.ProductVariant.Product.ProductCode</td>
+                        <td>@her.ProductVariant.Product.Price</td>
+                        <td>
+                            <button class="btn btn-sm btn-secondary changeQuantity" data-cart-id="@her.CartId" data-action="decrease">-</button>
+                            @her.Quantity
+                            <button class="btn btn-sm btn-secondary changeQuantity" data-cart-id="@her.CartId" data-action="increase">+</button>
+                        </td>
+
+                        <form id="updateCartForm" action="@Url.Action("UpdateCartItems", "AllProducts", new { cartId = Model.cartId, productVariantId = her.ProductVariantId })" method="post">
+                        <td>
+                            <select id="colorSelect" name="color">
+                                    @if (her.ProductVariant != null)
+                                    {
+                                        @foreach (var az in her.Product)
+                                        {
+                                            @if (az.TotalStock != 0)
+                                            {
+                                                @foreach(var ab in az.ProductVariants)
+                                                {
+                                                    <option value="@ab.Color">@ab.Color</option>
+                                                }
+                                                
+                                            };
+                                        }
+                                    }
+                            </select>
+                        </td>
+                        <td>
+                            <select id="sizeSelect" name="size">
+                                    @if (her.ProductVariant != null)
+                                    {
+                                        @foreach (var az in her.Product)
+                                        {
+                                            @if (az.TotalStock != 0)
+                                            {
+                                                @foreach(var ab in az.ProductVariants)
+                                                {
+                                                    <option value="@ab.Size">@ab.Size</option>
+                                                }
+                                                
+                                            };
+                                        }
+                                    }
+                            </select>
+                        </td>
+
+                        <td>
+                            <button type="submit" class="btn btn-success">Güncelle</button>
+                        </td>
+                        </form>
+
+                        
+                        <td>
+                            <button class="btn btn-primary addToCart" data-product-id="@her.ProductVariantId.ToString()">Sil</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (Model.CartItems.Count > 0)
+        {
+            double totalAmount = Model.CartItems.Sum(item => item.ProductVariant.Product.Price * item.Quantity);
+            <div class="d-flex justify-content-between align-items-center">
+                <h4>Toplam Fiyat: @totalAmount ₺</h4>
+                <a href="@Url.Action("OrderOrQuestion", "AllProducts", new { cartId = Model.cartId, totalAmount = totalAmount })" class="btn btn-success">Sipariş Ver</a>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Sepetinizde ürün bulunmamaktadır.</p>
+    }
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.addToCart').click(function () {
+            var productId = $(this).data('product-id');
+            $.ajax({
+                url: '/AllProducts/DeleteFromCart',
+                type: 'POST',
+                data: { id: productId },
+                success: function (response) {
+                    alert("Ürün sepete eklendi!");
+                    location.reload(); // Bu satır sayfanın yeniden yüklenmesini sağlar.
+                }
+            });
+        });
+    });
+    $(document).ready(function () {
+        $('.changeQuantity').click(function () {
+            var cartId = $(this).data('cart-id');
+            var action = $(this).data('action');
+
+            $.ajax({
+                url: '/AllProducts/UpdateCartQuantity',
+                type: 'POST',
+                data: { cartId: cartId, action: action },
+                success: function (response) {
+                    // Burada ekrana mesaj döndürmek yerine sessizce sayfayı yenile
+                    location.reload();
+                },
+                error: function (error) {
+                    console.error('AJAX error:', error);
+                }
+            });
+        });
+    });
+    $(document).ready(function () {
+        $('#updateCartForm').on('submit', function (e) {
+            e.preventDefault(); // Formun normal gönderimini engelle
+
+            var formData = $(this).serialize(); // Form verilerini serileştir
+
+            $.ajax({
+                url: $(this).attr('action'), // Formun 'action' değerini kullan
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    alert("Sepet güncellendi!"); // Başarılı yanıt geldiğinde uyarı göster
+                    // Burada istediğiniz ek işlemleri yapabilirsiniz
+                },
+                error: function (error) {
+                    console.error('AJAX error:', error);
+                    alert("Bir hata oluştu!"); // Hata durumunda uyarı göster
+                }
+            });
+        });
+    });
+
+</script>

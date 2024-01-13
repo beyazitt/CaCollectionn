@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "6vo9it9mdNCNNhAislSkG/uTStepivmomhMiaRCNc3Byi1IElgriDeMB7UQsxG7tpCZo4xNOYVelKEuP9W5zvQ==",
+  "dgSpecHash": "XQxru7uT9caYEB8FgvLNUGoERL4hg6TNkSnkk8CijOoq84nUMF+/g0fMxAISgYA4ydGF66N79nsCtgf9a5ihDA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\6.0.14\\microsoft.aspnetcore.authentication.google.6.0.14.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.14\\microsoft.aspnetcore.cryptography.internal.6.0.14.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.14\\microsoft.aspnetcore.cryptography.keyderivation.6.0.14.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.14\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.14.nupkg.sha512",

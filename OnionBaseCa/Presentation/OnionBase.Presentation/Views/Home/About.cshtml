@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Hakkımızda";
+}
+
+
+
+<div class="container">
+    <div>
+        <i class="fa-solid fa-file-contract" style="color:#57081a"></i>
+        <a href="@Url.Action("Contract", "Home")">
+            <p><font style="color=red;">Şartlar ve Koşullar</font></p>
+        </a>
+    </div>
+    <div>
+        <i class="fa-solid fa-handshake" style="color:#57081a"></i>
+        <a href="@Url.Action("DeliveryAndReturn", "Home")">
+            <p>Tüketici Hakları – Cayma – İptal İade Koşulları</p>
+        </a>
+
+    </div>
+    <div>
+        <i class="fa-solid fa-file-contract" style="color:#57081a"></i>
+        <a href ="@Url.Action("Privacy", "Home")">
+            <p>Gizlilik Politikası</p>
+        </a>
+    </div>
+</div>

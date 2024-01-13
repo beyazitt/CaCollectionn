@@ -1,9 +1,8 @@
-﻿@using OnionBase.Presentation.ViewModels;
+﻿@using OnionBase.Presentation.DTOs;
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@Model float
-
+@model OrderIdDTO
 <head>
     <style>
         body {
@@ -42,9 +41,9 @@
         <h2>Your IBAN Information</h2>
         <p>Here is your IBAN: TR12345678901234567890</p>
         <p>Please make sure that your IBAN information is correct. After you check your IBAN, please click the confirm button below.</p>
-        <p>Ücret : @ViewBag.price </p>
+        <p>Ücret : @Model.totalAmount </p>
         <form asp-action="PaymentApprove" asp-controller="AllProducts" method="post">
-            <input type="hidden" name="OrderId" value="@Model" />
+            <input type="hidden" name="OrderId" value="@Model.orderId" />
             <input type="submit" value="Confirm" />
         </form>
     </div>

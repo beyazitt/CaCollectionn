@@ -1,0 +1,127 @@
+﻿@* @model OnionBase.Presentation.ViewModels.AddProductViewModel
+
+@using (Html.BeginForm("AddVariant", "AllProducts", FormMethod.Post, new { id = "productForm" }))
+{
+    @Html.HiddenFor(model => model.ProductId)
+
+    <div id="dynamicAttributes">
+        <!-- İlk renk ve beden seçimi -->
+        <div class="form-group dynamic-attribute" style="display:flex; flex-direction:column; text-align:center; align-items:center;">
+            <div class="form-group">
+                <label>Renk</label>
+                <input type="text" class="form-control" name="Colors" placeholder="Renk Girin" />
+            </div>
+            <div class="form-group">
+                <label>Bedenler</label>
+                @foreach (var size in Model.Sizes)
+                {
+                    <div>
+                        <input type="checkbox" name="SelectedSizes[]" value="@size.Value" id="@("size" + size.SizeId)">
+                        <label for="@("size" + size.SizeId)">@size.Value</label>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <button type="button" id="addMore" class="btn btn-secondary">+</button>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+}
+<a type="submit" href="@Url.Action("AddProductStep3", "AllProducts", new { ProductId = Model.ProductId })" class="btn btn-primary">İlerle</a>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var colorIndex = 1;
+        $('#addMore').click(function () {
+            var newAttribute = $('#dynamicAttributes .dynamic-attribute:first').clone();
+            colorIndex++;
+            newAttribute.find('input[name="Colors"]').attr("name", "Colors" + colorIndex);
+            newAttribute.find('input[type="checkbox"]').each(function () {
+                $(this).attr("name", "SelectedSizes" + colorIndex + "[]");
+            });
+            $('#dynamicAttributes').append(newAttribute);
+        });
+
+        $('#productForm').submit(function (event) {
+            event.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                url: '@Url.Action("AddVariant", "AllProducts")',
+                type: 'POST',
+                data: formData,
+                success: function (result) {
+                    alert('Ürün kaydedildi');
+                },
+                error: function (xhr, status, error) {
+                    alert('Hata oluştu');
+                }
+            });
+        });
+    });
+</script>
+ *@
+
+
+@model OnionBase.Presentation.ViewModels.AddProductViewModel
+
+@using (Html.BeginForm("AddVariant", "AllProducts", FormMethod.Post, new { id = "productForm" }))
+{
+    @Html.HiddenFor(model => model.ProductId)
+
+    <div id="dynamicAttributes">
+        <!-- İlk renk ve beden seçimi -->
+        <div class="form-group dynamic-attribute" style="display:flex; flex-direction:column; text-align:center; align-items:center;">
+            <div class="form-group">
+                <label>Renk</label>
+                <input type="color" class="form-control" name="Colors" />
+            </div>
+            <div class="form-group">
+                <label>Bedenler</label>
+                @foreach (var size in Model.Sizes)
+                {
+                    <div>
+                        <input type="checkbox" name="SelectedSizes[]" value="@size.Value" id="@("size" + size.SizeId)">
+                        <label for="@("size" + size.SizeId)">@size.Value</label>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <button type="button" id="addMore" class="btn btn-secondary">+</button>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+}
+<a type="submit" href="@Url.Action("AddProductStep3", "AllProducts", new { ProductId = Model.ProductId })" class="btn btn-primary">İlerle</a>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var colorIndex = 1;
+        $('#addMore').click(function () {
+            var newAttribute = $('#dynamicAttributes .dynamic-attribute:first').clone();
+            colorIndex++;
+            // Renk seçici ve beden seçeneklerinin isimlerini güncelle
+            newAttribute.find('input[type="color"]').attr("name", "Colors" + colorIndex);
+            newAttribute.find('input[type="checkbox"]').each(function () {
+                $(this).attr("name", "SelectedSizes" + colorIndex + "[]");
+            });
+            $('#dynamicAttributes').append(newAttribute);
+        });
+
+        $('#productForm').submit(function (event) {
+            event.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                url: '@Url.Action("AddVariant", "AllProducts")',
+                type: 'POST',
+                data: formData,
+                success: function (result) {
+                    alert('Ürün kaydedildi');
+                },
+                error: function (xhr, status, error) {
+                    alert('Hata oluştu');
+                }
+            });
+        });
+    });
+</script>

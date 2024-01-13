@@ -23,7 +23,6 @@
 </head>
 <body>
 
-    <h2>Two Forms Side by Side</h2>
 
     <div class="row">
         <div class="column">
@@ -44,40 +43,28 @@
                     <span asp-validation-for="Model1.Phone"></span>
                     <label class="form-label" for="form3Example1cg">Telefon Numarası</label>
                 </div>
-
-                <div class="form-outline mb-4">
-                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Ürün Kodunuz @Model.Model2.ProductCode, Lütfen Ürün Kodunu Girin" asp-for="Model1.ProductCode" />
-                    <span asp-validation-for="Model1.ProductCode"></span>
-                    <label class="form-label" asp-for="Model1.ProductCode" for="form3Example1cg"></label>
-                    
-                </div>
-
                 <div class="form-outline mb-4">
                     <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Varsa kampanya kodunuzu girin." asp-for="Model1.CampaignCode" />
                     <span asp-validation-for="Model1.CampaignCode"></span>
-                    <label class="form-label" asp-for="Model1.CampaignCode" for="form3Example1cg"></label>
-
+                    <label class="form-label" asp-for="Model1.CampaignCode" for="form3Example1cg">Kampanya Kodu</label>
                 </div>
+                <div class="form-outline mb-4">
+                    <input type="hidden" class="form-control form-control-lg" asp-for="price" value="@Model.price" />
+                    <span asp-validation-for="price"></span>
+                    <label class="form-label" asp-for="Model1.CampaignCode" for="form3Example1cg"></label>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="hidden" class="form-control form-control-lg" asp-for="AdditionalFeature" />
+                    <span asp-validation-for="AdditionalFeature"></span>
+                    <label class="form-label" asp-for="Model1.AdditionalFeature"></label>
+                </div>
+                
                 <button type="submit"
                         class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color:#57081a">
-                    <font style="color:white">Register</font>
+                    <font style="color:white">Sipariş Oluştur</font>
                 </button>
             </form>
         </div>
-@*        <div class="column">
-            <h2>Question Form</h2>
-            <form asp-action="CreateQuestionAsync" asp-controller="AllProducts" method="post">
-                <div class="form-outline mb-4">
-                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" asp-for="QuestionBody" />
-                    <span asp-validation-for="QuestionBody"></span>
-                    <label class="form-label" for="form3Example1cg">Sorunuz</label>
-                </div>
-                <button type="submit"
-                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color:#57081a">
-                    <font style="color:white">Gönder</font>
-                </button>
-            </form>
-        </div>*@
     </div>
 
 </body>

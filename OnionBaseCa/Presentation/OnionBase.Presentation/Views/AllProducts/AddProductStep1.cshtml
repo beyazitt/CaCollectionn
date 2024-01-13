@@ -1,0 +1,107 @@
+﻿@using OnionBase.Presentation.ViewModels;
+
+@model AddProductViewModel
+
+<head>
+    <style>
+        /* Tam ekranı kapsayan stil */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+        }
+            /* Textarea'nın stilini ayarlayın */
+            .fullscreen textarea {
+                width: 100%;
+                height: 100%;
+            }
+    </style>
+</head>
+<form asp-action="AddProductStep1" asp-controller="AllProducts" method="post" enctype="multipart/form-data">
+    <table class="table">
+        <thead>
+            <th>Ürün Başlığı</th>
+            <th>Ücret</th>
+            <th>Resim</th>
+            <th>Ürün Rengi</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <td>
+                <input type="text" id="form3Example1cg" class="form-control form-control-lg" asp-for="ProductName" />
+                <span asp-validation-for="ProductName"></span>
+            </td>
+            <td>
+                <input type="text" id="form3Example1cg" class="form-control form-control-lg" asp-for="Price" />
+                <span asp-validation-for="Price"></span>
+            </td>
+            <td>
+                <input type="file" asp-for="Image" accept="image/*" />
+            </td>
+            <td>
+                <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color:#57081a">
+                    <font style="color:white">Devam Et</font>
+                </button>
+            </td>
+        </tbody>
+    </table>
+    <div class="form-outline mb-4">
+        <div class="custom-input">
+            <div>
+                <label>Renk</label>
+                <input type="color" class="form-control color-input" asp-for="ProductDescriptionColor" />
+            </div>
+            <div>
+                <label>Yazı Tipi</label>
+                <select class="form-control font-select" asp-for="ProductDescriptionFont">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <!-- Diğer yazı tiplerini ekleyin -->
+                </select>
+            </div>
+            <div>
+                <label>Yazı Boyutu</label>
+                <select class="form-control font-size-select" asp-for="ProductDescriptionFontSize">
+                    <option value="12px">12</option>
+                    <option value="16px">16</option>
+                    <!-- Diğer yazı boyutlarını ekleyin -->
+                </select>
+            </div>
+            <label for="ProductDescription">Ürün Açıklaması</label>
+            <textarea id="productDescription" class="form-control" asp-for="ProductDescription"></textarea>
+        </div>
+    </div>
+    
+
+</form>
+
+
+
+
+
+
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    const customInput = document.querySelector('.custom-input');
+    const textArea = customInput.querySelector('textarea');
+    const fontSelect = customInput.querySelector('.font-select');
+    const fontSizeSelect = customInput.querySelector('.font-size-select');
+    const colorInput = customInput.querySelector('.color-input');
+
+    fontSelect.addEventListener('change', function () {
+        textArea.style.fontFamily = fontSelect.value;
+    });
+
+    fontSizeSelect.addEventListener('change', function () {
+        textArea.style.fontSize = fontSizeSelect.value;
+    });
+
+    colorInput.addEventListener('input', function () {
+        textArea.style.color = colorInput.value;
+    });
+</script>

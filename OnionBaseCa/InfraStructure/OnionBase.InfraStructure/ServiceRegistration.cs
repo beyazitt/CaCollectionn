@@ -14,7 +14,8 @@ namespace OnionBase.InfraStructure
         public static void AddInfraStructureServices(this IServiceCollection services) 
         {
             services.AddScoped<IMailService,MailService>();
-            
+            services.AddScoped<IQRCodeService, QRCodeService>();
+
 
 
         }

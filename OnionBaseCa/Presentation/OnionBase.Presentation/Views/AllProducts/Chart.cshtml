@@ -1,0 +1,60 @@
+﻿@using OnionBase.Presentation.ViewModels;
+@model ChartViewModel
+
+<h2>@Model.ProductId</h2>
+
+@if (Model.Date.Any())
+{
+    <div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // C# modelini JavaScript nesnesine dönüştürme
+        var chartData = @Json.Serialize(Model);
+
+        // Tarih değerlerini "MM-dd" formatında al
+        var formattedDates = chartData.date.map(date => new Date(date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' }));
+
+        var values = chartData.views.map(view => view);
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: formattedDates,
+                datasets: [{
+                    label: 'Günlük Ziyaret Sayısı',
+                    data: values,
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                    pointRadius: 5,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        stepSize: 1  // Y ekseni için adım büyüklüğü
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false, // aspect ratio korunmasın
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+}
+else
+{
+    <p>No data available</p>
+}

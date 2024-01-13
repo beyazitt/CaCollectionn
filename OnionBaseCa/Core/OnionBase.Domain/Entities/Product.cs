@@ -11,15 +11,16 @@ namespace OnionBase.Domain.Entities
     public class Product:BaseEntity
     {
         [Key]
-        public int ProductId { get; set; }  
+        public Guid ProductId { get; set; }  
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
-        public string ProductColor { get; set; }
-        public int Stock { get; set;}
+        public int TotalStock { get; set; }
         public int ProductCode { get; set; }
         public int Price { get; set; }
         public string Image { get; set; }
+        public List<ProductVariant> ProductVariants { get; set; }
         public ICollection<Order> Orders { get; set; }
         public ICollection<Campaigns> Campaigns { get; set; }
+        public ICollection<Categories> Categories { get; set; }
     }
 }

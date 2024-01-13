@@ -1,0 +1,95 @@
+﻿@using OnionBase.Presentation.ViewModels;
+
+@model AddProductStep3ViewModel
+<div class="container mt-5" style="display:flex; text-align:center;">
+    <table class="table-bordered">
+        <thead>
+            <tr>
+                <th>Resim</th>
+                <th>Beden</th>
+                <th>Renk</th>
+                <th>Stok</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var her in Model.productVariants)
+            {
+                <tr>
+                    <form asp-action="AddImageToVariant" asp-controller="AllProducts" method="post" enctype="multipart/form-data">
+                        <td>
+                            <input type="file" id="image-input" accept="image/*" />
+                            <button type="button" class="btn btn-success upload-image-btn" data-variant-id="@her.ProductVariantId">Resim Yükle</button>
+                        </td>
+                    </form>
+                    <td>@her.Size</td>
+                    <td>@her.Color</td>
+                    <td>
+                        <input type="number" class="form-control stock-input" data-variant-id="@her.ProductVariantId" />
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary update-stock" data-variant-id="@her.ProductVariantId">Stok Güncelle</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color:#57081a" href="@Url.Action("AddProductStep3", "AllProducts", new {productId = Model.ProductId})">
+    <font style="color:white">Bitir</font>
+</button>
+
+<!-- jQuery kütüphanesini projeye eklemek için -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.update-stock').click(function () {
+            var variantId = $(this).data('variant-id');
+            var stockValue = $(this).closest('tr').find('.stock-input').val();
+
+            $.ajax({
+                url: '@Url.Action("UpdateStock", "AllProducts")',
+                type: 'POST',
+                data: JSON.stringify({ variantId: variantId, stock: stockValue }),
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    alert('Stok başarıyla güncellendi');
+                },
+                error: function (xhr, status, error) {
+                    alert('Hata oluştu: ' + error);
+                }
+            });
+        });
+    });
+
+
+    $(document).ready(function () {
+        $('.upload-image-btn').click(function (e) {
+            e.preventDefault();
+
+            var variantId = $(this).data('variant-id');
+            var formData = new FormData();
+            formData.append('Image', $('#image-input')[0].files[0]);
+            formData.append('VariantId', variantId);
+
+            $.ajax({
+                url: '@Url.Action("AddImageToVariant", "AllProducts")',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    alert('Resim başarıyla yüklendi');
+                },
+                error: function (xhr, status, error) {
+                    alert('Hata oluştu: ' + error);
+                }
+            });
+        });
+    });
+
+
+
+
+</script>

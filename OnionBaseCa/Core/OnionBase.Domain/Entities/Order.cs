@@ -13,16 +13,16 @@ namespace OnionBase.Domain.Entities
     {
         [Key]
         public Guid OrderId { get; set; }
-        public string CustomerId { get; set; }
-        public string Address { get; set; }
-        public ICollection<Product> Products { get; set; }
-        public int Phone { get; set; }  
-        public bool confirmationRequest { get; set;}
+        public string UserId { get; set; } // siparişi veren kullanıcının ID'si
+        public DateTime OrderDate { get; set; }
+        public double TotalPrice { get; set; } // indirimli fiyat dahil
+        public string? CampaignCode { get; set; } // eğer kampanya kodu kullanıldıysa
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+        public bool confirmationRequest { get; set; }
         public bool isConfirmed { get; set; }
-        public AppUser Users { get; set; }
-        public int ProductCode { get; set; }
-        public string? usedCampaignCode { get; set; }
-        public ICollection<Campaigns> Campaigns { get; set; }
+        public bool? Shipping { get; set; }
+        public string? ShippingCode { get; set; }
+
 
     }
 }

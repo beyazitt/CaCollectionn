@@ -22,36 +22,6 @@ namespace OnionBase.Persistance.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CampaignsOrder", b =>
-                {
-                    b.Property<Guid>("CampaignscampaignId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("OrderId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CampaignscampaignId", "OrderId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("CampaignsOrder");
-                });
-
-            modelBuilder.Entity("CampaignsProduct", b =>
-                {
-                    b.Property<Guid>("CampaignscampaignId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CampaignscampaignId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("CampaignsProduct");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -158,34 +128,158 @@ namespace OnionBase.Persistance.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("OnionBase.Domain.Entities.Campaigns", b =>
+            modelBuilder.Entity("OnionBase.Domain.Entities.ActivationLinks", b =>
                 {
-                    b.Property<Guid>("campaignId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<long>("Link")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("ısActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ActivationLinks");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.Campaigns", b =>
+                {
+                    b.Property<string>("CampaignCode")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("DiscountPercentage")
+                        .HasColumnType("float");
+
                     b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("discountCode")
+                    b.Property<DateTime>("ValidUntil")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("CampaignCode");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Campaigns");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.Cart", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("discountRate")
-                        .HasColumnType("real");
+                    b.HasKey("Id");
 
-                    b.Property<bool>("isActive")
-                        .HasColumnType("bit");
+                    b.ToTable("Carts");
+                });
 
-                    b.HasKey("campaignId");
+            modelBuilder.Entity("OnionBase.Domain.Entities.CartItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.ToTable("Campaigns");
+                    b.Property<string>("Beden")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CartId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductVariantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("ProductVariantId");
+
+                    b.ToTable("CartItems");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.Categories", b =>
+                {
+                    b.Property<Guid>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CategoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.CodeFors", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CodeFor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CodeFors");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.CodeRequests", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Code")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CodeFor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CodeRequests");
                 });
 
             modelBuilder.Entity("OnionBase.Domain.Entities.Identity.AppRole", b =>
@@ -222,9 +316,6 @@ namespace OnionBase.Persistance.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
-
-                    b.Property<Guid?>("CampaignscampaignId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -286,15 +377,10 @@ namespace OnionBase.Persistance.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<int>("sentCode")
-                        .HasColumnType("int");
-
                     b.Property<int>("userRate")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CampaignscampaignId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -313,31 +399,39 @@ namespace OnionBase.Persistance.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
-                        .IsRequired()
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CampaignCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("CustomerId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("ProductCode")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("Shipping")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ShippingCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("UpdatedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UsersId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("confirmationRequest")
                         .HasColumnType("bit");
@@ -345,23 +439,65 @@ namespace OnionBase.Persistance.Migrations
                     b.Property<bool>("isConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("usedCampaignCode")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("OrderId");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("OnionBase.Domain.Entities.Product", b =>
+            modelBuilder.Entity("OnionBase.Domain.Entities.OrderDetail", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<Guid>("OrderDetailId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("DiscountedPrice")
+                        .HasColumnType("float");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ProductVariantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
+                    b.Property<double>("UnitPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("OrderDetailId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductVariantId");
+
+                    b.ToTable("OrderDetails");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.Product", b =>
+                {
+                    b.Property<Guid>("ProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CartItemId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
@@ -379,10 +515,6 @@ namespace OnionBase.Persistance.Migrations
                     b.Property<int>("ProductCode")
                         .HasColumnType("int");
 
-                    b.Property<string>("ProductColor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ProductDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -391,7 +523,7 @@ namespace OnionBase.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Stock")
+                    b.Property<int>("TotalStock")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedTime")
@@ -399,7 +531,39 @@ namespace OnionBase.Persistance.Migrations
 
                     b.HasKey("ProductId");
 
+                    b.HasIndex("CartItemId");
+
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.ProductVariant", b =>
+                {
+                    b.Property<Guid>("ProductVariantId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductVariantId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductVariants");
                 });
 
             modelBuilder.Entity("OnionBase.Domain.Entities.Question", b =>
@@ -431,49 +595,50 @@ namespace OnionBase.Persistance.Migrations
                     b.ToTable("Questions");
                 });
 
-            modelBuilder.Entity("OrderProduct", b =>
+            modelBuilder.Entity("OnionBase.Domain.Entities.Sizes", b =>
                 {
-                    b.Property<Guid>("OrdersOrderId")
+                    b.Property<Guid>("SizeId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ProductsProductId")
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SizeId");
+
+                    b.ToTable("Sizes");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.VisitedDatas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.HasKey("OrdersOrderId", "ProductsProductId");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.HasIndex("ProductsProductId");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
-                    b.ToTable("OrderProduct");
-                });
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-            modelBuilder.Entity("CampaignsOrder", b =>
-                {
-                    b.HasOne("OnionBase.Domain.Entities.Campaigns", null)
-                        .WithMany()
-                        .HasForeignKey("CampaignscampaignId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasOne("OnionBase.Domain.Entities.Order", null)
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                    b.Property<int>("View")
+                        .HasColumnType("int");
 
-            modelBuilder.Entity("CampaignsProduct", b =>
-                {
-                    b.HasOne("OnionBase.Domain.Entities.Campaigns", null)
-                        .WithMany()
-                        .HasForeignKey("CampaignscampaignId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<bool>("locked")
+                        .HasColumnType("bit");
 
-                    b.HasOne("OnionBase.Domain.Entities.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("VisitedDatas");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -527,20 +692,85 @@ namespace OnionBase.Persistance.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("OnionBase.Domain.Entities.Identity.AppUser", b =>
+            modelBuilder.Entity("OnionBase.Domain.Entities.Campaigns", b =>
                 {
-                    b.HasOne("OnionBase.Domain.Entities.Campaigns", null)
-                        .WithMany("user")
-                        .HasForeignKey("CampaignscampaignId");
+                    b.HasOne("OnionBase.Domain.Entities.Product", null)
+                        .WithMany("Campaigns")
+                        .HasForeignKey("ProductId");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.CartItem", b =>
+                {
+                    b.HasOne("OnionBase.Domain.Entities.Cart", "Cart")
+                        .WithMany("CartItems")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnionBase.Domain.Entities.ProductVariant", "ProductVariant")
+                        .WithMany()
+                        .HasForeignKey("ProductVariantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+
+                    b.Navigation("ProductVariant");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.Categories", b =>
+                {
+                    b.HasOne("OnionBase.Domain.Entities.Product", null)
+                        .WithMany("Categories")
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("OnionBase.Domain.Entities.Order", b =>
                 {
-                    b.HasOne("OnionBase.Domain.Entities.Identity.AppUser", "Users")
+                    b.HasOne("OnionBase.Domain.Entities.Identity.AppUser", null)
                         .WithMany("orders")
-                        .HasForeignKey("UsersId");
+                        .HasForeignKey("AppUserId");
 
-                    b.Navigation("Users");
+                    b.HasOne("OnionBase.Domain.Entities.Product", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("ProductId");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.OrderDetail", b =>
+                {
+                    b.HasOne("OnionBase.Domain.Entities.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnionBase.Domain.Entities.ProductVariant", "ProductVariant")
+                        .WithMany()
+                        .HasForeignKey("ProductVariantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("ProductVariant");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.Product", b =>
+                {
+                    b.HasOne("OnionBase.Domain.Entities.CartItem", null)
+                        .WithMany("Product")
+                        .HasForeignKey("CartItemId");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.ProductVariant", b =>
+                {
+                    b.HasOne("OnionBase.Domain.Entities.Product", "Product")
+                        .WithMany("ProductVariants")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("OnionBase.Domain.Entities.Question", b =>
@@ -552,29 +782,44 @@ namespace OnionBase.Persistance.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("OrderProduct", b =>
+            modelBuilder.Entity("OnionBase.Domain.Entities.VisitedDatas", b =>
                 {
-                    b.HasOne("OnionBase.Domain.Entities.Order", null)
+                    b.HasOne("OnionBase.Domain.Entities.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("OrdersOrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
-                    b.HasOne("OnionBase.Domain.Entities.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("OnionBase.Domain.Entities.Campaigns", b =>
+            modelBuilder.Entity("OnionBase.Domain.Entities.Cart", b =>
                 {
-                    b.Navigation("user");
+                    b.Navigation("CartItems");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.CartItem", b =>
+                {
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("OnionBase.Domain.Entities.Identity.AppUser", b =>
                 {
                     b.Navigation("orders");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("OnionBase.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("Campaigns");
+
+                    b.Navigation("Categories");
+
+                    b.Navigation("Orders");
+
+                    b.Navigation("ProductVariants");
                 });
 #pragma warning restore 612, 618
         }

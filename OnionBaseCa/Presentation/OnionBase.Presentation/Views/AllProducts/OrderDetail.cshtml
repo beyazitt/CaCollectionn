@@ -1,0 +1,45 @@
+﻿@using OnionBase.Presentation.ViewModels;
+@model OrderDetailViewModel
+
+
+<table class="table">
+    <thead>
+    <th></th>
+    <th>Ürün Adı</th>
+    <th>Fiyat</th>
+    <th>Adet</th>
+    
+    </thead>
+
+    <tbody>
+        @for (int i = 0; i < Math.Max(Model.Product.Count, Model.OrderDetail.Count); i++)
+        {
+            <tr>
+                @if (i < Model.Product.Count)
+                {
+                    var product = Model.Product[i];
+                    <td><img src="data:image/jpeg;base64,@product.Image" width="50" alt="@product.ProductName" /></td>
+                    <td>@product.ProductName</td>
+                    <td>@product.Price</td>
+                }
+                else
+                {
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                }
+
+                @if (i < Model.OrderDetail.Count)
+                {
+                    var orderDetail = Model.OrderDetail[i];
+                    <td>@orderDetail.Quantity</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                
+            </tr>
+        }
+    </tbody>
+</table>

@@ -14,5 +14,6 @@ namespace OnionBase.Persistance.Repositories
         public ProductReadRepository(UserDbContext context) : base(context)
         {
         }
+
     }
 }

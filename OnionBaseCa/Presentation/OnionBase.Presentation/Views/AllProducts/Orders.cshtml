@@ -1,0 +1,34 @@
+﻿@using OnionBase.Domain.Entities;
+@model List<Order>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Telefon Numarası</th>
+            <th>Sipariş Tarihi</th>
+            <th>Kullanıcı Adı</th>
+            <th>Adres</th>
+            <th>Şehir</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            @using (Html.BeginForm("PaymentApprove", "AllProducts", new { OrderId = user.OrderId }, FormMethod.Post))
+            {
+                <tr>
+                    <td>@user.OrderDetails.First().PhoneNumber</td>
+                    <td>@user.UpdatedTime</td>
+                    <td>@User.Identity.Name</td>
+                    <td>Kargo Adresi: @user.OrderDetails.First().Address</td>
+                    <td>Şehir: @user.OrderDetails.First().City</td>
+                    <td>
+                        <a href="@Url.Action("ShippingStage", "AllProducts", new { id = user.OrderId })" class="btn btn-danger btn-sm float-end">Detaylı Gör</a>
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>

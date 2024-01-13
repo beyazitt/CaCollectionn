@@ -15,10 +15,13 @@
     <thead>
         <tr>
             <th>Adres</th>
-            <th>Ürün Kodu</th>
+            <th>Ürün Resmi</th>
             <th>Telefon Numarası</th>
             <th>Sipariş Tarihi</th>
+            <th>Toplam Ücret</th>
             <th>Sipariş Durumu</th>
+            <th>Kargo Durumu</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -27,10 +30,11 @@
             @using (Html.BeginForm("PaymentApprove", "AllProducts", new { OrderId = user.OrderId }, FormMethod.Post))
             {
                 <tr>
-                    <td>@user.Address</td>
-                    <td>@user.ProductCode</td>
-                    <td>@user.Phone</td>
+                    <td>@user.OrderDetails.First().Address</td>
+                    <td><img src="data:image/jpeg;base64,@user.OrderDetails.First().ProductVariant.Image" width="50" alt="@user.OrderDetails.First().ProductVariant.Color" /></td>
+                    <td>@user.OrderDetails.First().PhoneNumber</td>
                     <td>@user.UpdatedTime</td>
+                    <td>@user.TotalPrice</td>
                     <td>
                         @if (user.isConfirmed == true)
                         {
@@ -41,6 +45,19 @@
                             <p>Onaylanmadı</p>
                         }
                     </td>
+                    <td>
+                        @if (user.ShippingCode == null)
+                        {
+                            <p>Henüz Paketlenmedi</p>
+                        }
+                        else
+                        {
+                            <p>Kargonuz yola çıktı. Kargo Takip Kodunuz : <font style="color:blueviolet">@user.ShippingCode</font></p>
+                           
+                        }
+
+                    </td>
+                    <td><a href="@Url.Action("OrderDetail", "AllProducts", new { OrderId = user.OrderId })" style="color:blueviolet">Detaylı Gör</a></td>
                 </tr>
             }
             

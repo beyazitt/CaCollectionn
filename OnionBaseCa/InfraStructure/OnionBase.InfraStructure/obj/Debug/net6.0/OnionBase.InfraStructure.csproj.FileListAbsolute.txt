@@ -19,3 +19,42 @@ C:\Users\USER\Desktop\main-proj\OnionBaseCa\InfraStructure\OnionBase.InfraStruct
 C:\Users\USER\Desktop\main-proj\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.pdb
 C:\Users\USER\Desktop\main-proj\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.genruntimeconfig.cache
 C:\Users\USER\Desktop\main-proj\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\ref\OnionBase.InfraStructure.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.InfraStructure.deps.json
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.InfraStructure.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.InfraStructure.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Domain.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Persistance.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Application.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Persistance.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Domain.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.AssemblyInfo.cs
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.csproj.CopyComplete
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\refint\OnionBase.InfraStructure.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\ref\OnionBase.InfraStructure.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.InfraStructure.deps.json
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.InfraStructure.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.InfraStructure.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Domain.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Persistance.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Application.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Persistance.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\bin\Debug\net6.0\OnionBase.Domain.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.AssemblyInfo.cs
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.sourcelink.json
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.csproj.CopyComplete
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\refint\OnionBase.InfraStructure.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\OnionBase.InfraStructure.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.InfraStructure\obj\Debug\net6.0\ref\OnionBase.InfraStructure.dll

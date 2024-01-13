@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+wzrARDhMcPPp2rHSliNDcUg5TlADY7PbTttpFWiQWHB84eLrh8aOVIQNfIs6Gn7SyZdJJUFFJlGSzlqjWHxFg==",
+  "dgSpecHash": "v+Zk1QEOdGRNGJUX66NSsTFXzff3926Ep7DcBqGd8AzPF+WCe/owYDurf+QJ1ZkSQUAO6MEW2nneFt+i512hqg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\OnionBase.Presentation.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\OnionBase.Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\enums.net\\4.0.1\\enums.net.4.0.1.nupkg.sha512",
@@ -63,6 +63,7 @@
     "C:\\Users\\USER\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\6.0.14\\microsoft.aspnetcore.authentication.google.6.0.14.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.15\\microsoft.aspnetcore.cryptography.internal.6.0.15.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.15\\microsoft.aspnetcore.cryptography.keyderivation.6.0.15.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\6.0.15\\microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.15.nupkg.sha512",
@@ -148,6 +149,7 @@
     "C:\\Users\\USER\\.nuget\\packages\\nuget.projectmodel\\6.6.1\\nuget.projectmodel.6.6.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\nuget.protocol\\6.6.1\\nuget.protocol.6.6.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\nuget.versioning\\6.6.1\\nuget.versioning.6.6.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\qrcoder\\1.4.3\\qrcoder.1.4.3.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",

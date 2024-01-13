@@ -15,3 +15,34 @@ C:\Users\USER\Desktop\main-proj\OnionBaseCa\Core\OnionBase.Application\obj\Debug
 C:\Users\USER\Desktop\main-proj\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.pdb
 C:\Users\USER\Desktop\main-proj\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.genruntimeconfig.cache
 C:\Users\USER\Desktop\main-proj\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\ref\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\bin\Debug\net6.0\OnionBase.Application.deps.json
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\bin\Debug\net6.0\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\bin\Debug\net6.0\OnionBase.Application.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\bin\Debug\net6.0\OnionBase.Domain.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\bin\Debug\net6.0\OnionBase.Domain.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.AssemblyInfo.cs
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.csproj.CopyComplete
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\refint\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\ref\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\bin\Debug\net6.0\OnionBase.Application.deps.json
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\bin\Debug\net6.0\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\bin\Debug\net6.0\OnionBase.Application.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\bin\Debug\net6.0\OnionBase.Domain.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\bin\Debug\net6.0\OnionBase.Domain.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.AssemblyInfo.cs
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.sourcelink.json
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.csproj.CopyComplete
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\refint\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\OnionBase.Application.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\Core\OnionBase.Application\obj\Debug\net6.0\ref\OnionBase.Application.dll

@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using OnionBase.Domain.Entities.Identity
+@using System.Security.Claims;
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
 <!DOCTYPE html>
@@ -19,11 +20,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/loader.css" />
 </head>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid" style="justify-content: space-evenly">
             <ul class="navbar-nav d-flex flex-row">
+
                 <!-- Icons -->
                 <li class="nav-item me-3 me-lg-0">
                     <a class="nav-link" type="submit" href="@Url.Action("Index", "Home")">
@@ -36,6 +39,15 @@
                         <i class="fab fa-product-hunt" style="color:#57081a"></i>
                     </a>
                 </li>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" type="submit" href="@Url.Action("ShoppingCart", "AllProducts", new {  id = User.FindFirstValue(ClaimTypes.NameIdentifier)})">
+                            <i class="fa-solid fa-cart-shopping" style="color:#57081a"></i>
+                        </a>
+                    </li>
+                }
+                
                 <!-- Icon dropdown -->
                 <li class="nav-item me-3 me-lg-0 dropdown">
                     <a class="nav-link dropdown-toggle"
@@ -87,7 +99,9 @@
         </div>
     </nav>
 </header>
+
 <body>
+    <span class="loader" id="loader"></span>
     <div class="container">
         @RenderBody()
     </div>
@@ -96,5 +110,64 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/mdb.min.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <br />
+    <br />
+    <br />
+    <br />
 </body>
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4" style="display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: space-evenly;">
+            <!-- Instagram -->
+
+            <div class="column">
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            
+
+        </section>
+        <!-- Section: Social media -->
+        <!-- Section: Form -->
+        <section class="">
+        </section>
+        <!-- Section: Form -->
+        
+        <!-- Section: Text -->
+        <section class="mb-4">
+            <p>
+                <a href="@Url.Action("About", "Home")">Hakkımızda</a>
+            </p>
+        </section>
+        <!-- Section: Text -->
+        <!-- Section: Links -->
+        <section class="">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <img src="/img/iyzicologo.png" />
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+    <!-- Copyright -->
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Elementle ilgili işlemlerinizi burada yapın
+        document.getElementById("loader").style.display = "none";
+    });
+
+</script>

@@ -2,12 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\OnionBaseCa",
-    "\\OnionBaseCa\\InfraStructure",
-    "\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance",
     "\\OnionBaseCa\\Presentation",
     "\\OnionBaseCa\\Presentation\\OnionBase.Presentation",
-    "\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\Controllers"
+    "\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\Controllers",
+    "\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\ViewModels",
+    "\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\Views",
+    "\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\Views\\AllProducts",
+    "\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\wwwroot",
+    "\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\wwwroot\\css"
   ],
-  "SelectedNode": "\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\Controllers\\AllProductsController.cs",
+  "SelectedNode": "\\OnionBaseCa\\Presentation\\OnionBase.Presentation\\ViewModels\\ShoppingCartViewModel.cs",
   "PreviewInSolutionExplorer": false
 }

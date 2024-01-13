@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.InfraStructure\\OnionBase.InfraStructure.csproj": {}
+    "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.InfraStructure\\OnionBase.InfraStructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj": {
+    "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj",
         "projectName": "OnionBase.Application",
-        "projectPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Application\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj": {
-                "projectPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj"
+              "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj": {
+                "projectPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj"
               }
             }
           }
@@ -52,6 +52,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[12.1.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[6.0.14, )"
             }
           },
           "imports": [
@@ -70,18 +74,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj": {
+    "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj",
         "projectName": "OnionBase.Domain",
-        "projectPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Domain\\OnionBase.Domain.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Domain\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -118,6 +122,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[12.1.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[6.0.14, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -156,18 +164,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.InfraStructure\\OnionBase.InfraStructure.csproj": {
+    "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.InfraStructure\\OnionBase.InfraStructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.InfraStructure\\OnionBase.InfraStructure.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.InfraStructure\\OnionBase.InfraStructure.csproj",
         "projectName": "OnionBase.InfraStructure",
-        "projectPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.InfraStructure\\OnionBase.InfraStructure.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.InfraStructure\\OnionBase.InfraStructure.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.InfraStructure\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.InfraStructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -189,11 +197,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj": {
-                "projectPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj"
+              "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj": {
+                "projectPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj"
               },
-              "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\OnionBase.Persistance.csproj": {
-                "projectPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\OnionBase.Persistance.csproj"
+              "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\OnionBase.Persistance.csproj": {
+                "projectPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\OnionBase.Persistance.csproj"
               }
             }
           }
@@ -212,9 +220,17 @@
               "target": "Package",
               "version": "[12.1.1, )"
             },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
             "Microsoft.IdentityModel.Clients.ActiveDirectory": {
               "target": "Package",
               "version": "[5.3.0, )"
+            },
+            "QRCoder": {
+              "target": "Package",
+              "version": "[1.4.3, )"
             },
             "Twilio": {
               "target": "Package",
@@ -237,18 +253,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\OnionBase.Persistance.csproj": {
+    "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\OnionBase.Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\OnionBase.Persistance.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\OnionBase.Persistance.csproj",
         "projectName": "OnionBase.Persistance",
-        "projectPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\OnionBase.Persistance.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\OnionBase.Persistance.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\InfraStructure\\OnionBase.Persistance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -270,8 +286,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj": {
-                "projectPath": "C:\\Users\\USER\\Desktop\\main-proj\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj"
+              "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj": {
+                "projectPath": "C:\\Users\\USER\\Desktop\\main-proj-yedek\\01.10.2023\\OnionBaseCa\\Core\\OnionBase.Application\\OnionBase.Application.csproj"
               }
             }
           }
@@ -289,6 +305,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[12.1.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[6.0.14, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -319,7 +339,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

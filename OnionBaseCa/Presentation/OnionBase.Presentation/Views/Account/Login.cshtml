@@ -31,7 +31,7 @@
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <form asp-action="Login" asp-controller="Account" method="post">
                                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                                <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                                <p class="text-white-50 mb-5">Lütfen Mail Adresinizi ve Şifrenizi Girin</p>
 
                                 <div class="form-outline form-white mb-4">
                                     <input type="email" id="typeEmailX" class="form-control form-control-lg" asp-for="Email" placeholder="E-mail adresi" required/>
@@ -43,9 +43,12 @@
                                     <label class="form-label" for="typePasswordX">Şifre</label>
                                 </div>
 
-                                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Şifremi Unuttum</a></p>
+                                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="@Url.Action("ForgetPassword", "Account")">Şifremi Unuttum</a></p>
 
-                                <input type="submit" value="GİRİŞ YAP" id="myForm"/>
+                                <button type="submit"
+                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color:#57081a">
+                                    <font style="color:white">Giriş Yap</font>
+                                </button>
                                 @if(TempData["SuccessLogin"] != null)
                                 {
                                     <div class="alert alert-danger" role="alert">
@@ -72,7 +75,7 @@
 
 
                         <div>
-                            <p class="mb-0">
+                            <p class="mb-0" >
                                 Henüz hesabınız yok mu? <a href="@Url.Action("Register", "Account")" class="text-white-50 fw-bold">Kayıt Ol</a>
                             </p>
                         </div>

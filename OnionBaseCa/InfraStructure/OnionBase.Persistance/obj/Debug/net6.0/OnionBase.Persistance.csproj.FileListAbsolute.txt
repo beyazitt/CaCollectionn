@@ -17,3 +17,38 @@ C:\Users\USER\Desktop\main-proj\OnionBaseCa\InfraStructure\OnionBase.Persistance
 C:\Users\USER\Desktop\main-proj\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.pdb
 C:\Users\USER\Desktop\main-proj\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.genruntimeconfig.cache
 C:\Users\USER\Desktop\main-proj\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\ref\OnionBase.Persistance.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Persistance.deps.json
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Persistance.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Persistance.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Domain.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Application.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Domain.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.AssemblyInfo.cs
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.csproj.CopyComplete
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\refint\OnionBase.Persistance.dll
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.pdb
+C:\Users\USER\Desktop\main-proj - Kopya\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\ref\OnionBase.Persistance.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Persistance.deps.json
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Persistance.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Persistance.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Application.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Domain.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Application.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\bin\Debug\net6.0\OnionBase.Domain.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.AssemblyInfo.cs
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.sourcelink.json
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.csproj.CopyComplete
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\refint\OnionBase.Persistance.dll
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\OnionBase.Persistance.pdb
+C:\Users\USER\Desktop\main-proj-yedek\01.10.2023\OnionBaseCa\InfraStructure\OnionBase.Persistance\obj\Debug\net6.0\ref\OnionBase.Persistance.dll

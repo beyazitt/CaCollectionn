@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 using OnionBase.Application.Repositories;
+using OnionBase.Application.Services;
+using OnionBase.Domain.Entities;
 using OnionBase.Domain.Entities.Identity;
 using OnionBase.Persistance.Contexts;
 using OnionBase.Presentation.Commands;
@@ -15,6 +17,8 @@ using OnionBase.Presentation.Interfaces;
 using OnionBase.Presentation.Models;
 using OnionBase.Presentation.ViewModels;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
@@ -56,7 +60,7 @@ namespace OnionBase.Presentation.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            TempData["SuccessLogin"] = "";
+            TempData["SuccessLogin"] = null;
             return View();
         }
         [HttpPost]
@@ -78,9 +82,21 @@ namespace OnionBase.Presentation.Controllers
                     //    Name = user.Name,
                     //    PhoneNumber = user.PhoneNumber
                     //};
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    TempData["SuccessLogin"] = "Başarıyla giriş yapıldı;";
-                    return RedirectToAction("Index", "Home");
+                    if(user.EmailConfirmed != true)
+                    {
+                        ViewMessageViewModel mesaj = new ViewMessageViewModel()
+                        {
+                            Message = "Lütfen Mail adresiniz üzerinden hesabınızı aktifleştirin."
+                        };
+                        return RedirectToAction("Message", "Home", mesaj);
+                    }
+                    else
+                    {
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        TempData["SuccessLogin"] = "Başarıyla giriş yapıldı;";
+                        return RedirectToAction("Index", "Home");
+                    }
+                    
                 }
                 TempData["ErrorLogin"] = "Kullanıcı adı veya şifre hatalı";
                 return View("Login");
@@ -119,27 +135,93 @@ namespace OnionBase.Presentation.Controllers
                 await _roleManager.CreateAsync(new AppRole("user"));
                 AppUser user = await _userManager.FindByEmailAsync(model.Email);
                 TempData["UserId"] = user.Id;
+                var cart = new Cart
+                {
+                    UserId = user.Id
+                };
+                _dbContext.Carts.Add(cart);
+                _dbContext.SaveChanges();
+                try
+                {
+                    string fromMail = "b.beyazit83@gmail.com";
+                    string fromPassword = "zdtfgdblvtqlqbad";
+                    MailMessage message = new MailMessage();
+                    message.From = new MailAddress(fromMail);
+                    message.Subject = "CaCollection'a Hoşgeldiniz.";
+                    message.To.Add(new MailAddress(fromMail));
+                    string activationLink = Url.Action("ActivateAccount", "Account", new { userId = user.Id, activationCode = user.SmsCode }, Request.Scheme);
 
-                string message = "Your registration is successful. Your verification code is {0}".FormatWith(code);
-                string targetPhoneNumber = "9{0}".FormatWith(user.PhoneNumber); // Use user.PhoneNumber instead of model.PhoneNumber
-                bool smsSent = await _smsHelper.SendSms(message, targetPhoneNumber);
+                    message.Body = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-rbs5jf5trMN6d5Z7/6m9bIH6L5GTgZo7PCkEAgBrEL5pLvH8Cj3pFkkY3VI5S9em\" crossorigin=\"anonymous\">\r\n  <title>Bootstrap Secondary Alert</title>\r\n</head>\r\n<body>\r\n\r\n    <div class=\"alert alert-secondary\" role=\"alert\"  style=\"display: flex; flex-direction: column;\">\r\n        <div class=\"mb-2\">CanaCollection'a Hoşgeldiniz.</div>\r\n        <div class=\"mb-2\">Hesabınıza giriş yapabilmeniz için hesabınızın onaylanması gerekmektedir.</div>\r\n        <div class=\"mb-2\">Onaylamak için alttaki linke tıklayabilirsiniz.</div>\r\n        <div class=\"mb-2\">Güzel günler dileriz.</div>\r\n        <div class=\"mb-2\">\r\n            <!-- Your activation link here -->\r\n            " + activationLink + "\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Bootstrap CSS and JS links -->\r\n      <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\">\r\n      <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM\" crossorigin=\"anonymous\"></script>\r\n    </body>\r\n\r\n</html>";
+                    message.IsBodyHtml = true;
 
-                //if (smsSent)
-                //{
-                //    // Handle SMS sent successfully, redirect to a success page or show a success message
-                //    return RedirectToAction("SmsVerification");
-                //}
-                //else
-                //{
-                //    // Handle SMS failed to send, show an error message
-                //    ModelState.AddModelError("", "SMS could not be sent. Please try again.");
-                //}
+                    // ... (remaining code)
+
+                    message.IsBodyHtml = true;
+                    var smtpClient = new SmtpClient("smtp.gmail.com")
+                    {
+                        Port = 587,
+                        Credentials = new NetworkCredential(fromMail, fromPassword),
+                        EnableSsl = true
+                    };
+                    smtpClient.Send(message);
+                    System.Threading.Thread.Sleep(3000); // 3000 milisaniye bekleyin (örneğin)
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("Stack Trace: " + ex.StackTrace);
+                }
+                
+
                 return View("Login");
 
             }
 
             // If user registration failed
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ActivateAccount(string userId, int activationCode)
+        {
+            // Kullanıcıyı ve aktivasyon kodunu kontrol et
+            // Örneğin, bu bilgileri veritabanında bir tabloda saklayarak kontrol edebilirsiniz.
+            bool isActivationSuccessful = CheckActivation(userId, activationCode);
+            var user = _dbContext.Users.Where(a => a.Id == userId).FirstOrDefault();
+            if (isActivationSuccessful)
+            {
+                // Hesap başarıyla aktifleştirildiyse, istediğiniz işlemleri gerçekleştirin
+                // Örneğin, bir teşekkür mesajı göstermek, giriş yapmış gibi yapmak, vb.
+                ViewBag.Message = "Hesabınız başarıyla aktifleştirildi!";
+                user.EmailConfirmed = true;
+                _dbContext.Users.Update(user);
+                _dbContext.SaveChanges();
+
+            }
+            else
+            {
+                // Hesap aktifleştirme başarısızsa, istediğiniz işlemleri gerçekleştirin
+                ViewBag.Message = "Hesap aktifleştirme başarısız!";
+            }
+            ViewMessageViewModel mesaj = new ViewMessageViewModel()
+            {
+                Message = ViewBag.Message,
+            };
+            return RedirectToAction("Message","Home",mesaj);
+        }
+
+        private bool CheckActivation(string userId, int activationCode)
+        {
+            var user = _dbContext.Users.Where(a => a.Id == userId).FirstOrDefault();
+            if(user.SmsCode == activationCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 
@@ -150,6 +232,91 @@ namespace OnionBase.Presentation.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+
+        [HttpGet]
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ForgetPassword(ResetPasswordViewModel resetPasswordViewModel)
+        {
+            var user = _dbContext.Users.Where(a => a.Email == resetPasswordViewModel.Email).FirstOrDefault();
+            Random random = new Random();
+            int code = random.Next(100000, 1000000);
+            if (user != null)
+            {
+                string activationLink = Url.Action("ResetPassword", "Account", new { userId = user.Id, activationCode = code }, Request.Scheme);
+                string fromMail = "b.beyazit83@gmail.com";
+                string fromPassword = "zdtfgdblvtqlqbad";
+                MailMessage message = new MailMessage();
+                message.From = new MailAddress(fromMail);
+                message.Subject = "Şifre Sıfırlama.";
+                message.To.Add(new MailAddress(fromMail));
+                message.Body = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-rbs5jf5trMN6d5Z7/6m9bIH6L5GTgZo7PCkEAgBrEL5pLvH8Cj3pFkkY3VI5S9em\" crossorigin=\"anonymous\">\r\n  <title>Bootstrap Secondary Alert</title>\r\n</head>\r\n<body>\r\n\r\n    <div class=\"alert alert-secondary\" role=\"alert\"  style=\"display: flex; flex-direction: column;\">\r\n        <div class=\"mb-2\">CanaCollection'a Hoşgeldiniz.</div>\r\n    <div class=\"mb-2\"> Şifrenizi sıfırlamak alttaki linke tıklayabilirsiniz.</div>\r\n        <div class=\"mb-2\">Güzel günler dileriz.</div>\r\n        <div class=\"mb-2\">\r\n            <!-- Your activation link here -->\r\n            " + activationLink + "\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Bootstrap CSS and JS links -->\r\n      <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\">\r\n      <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM\" crossorigin=\"anonymous\"></script>\r\n    </body>\r\n\r\n</html>";
+                message.IsBodyHtml = true;
+                var smtpClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential(fromMail, fromPassword),
+                    EnableSsl = true
+                };
+                smtpClient.Send(message);
+                System.Threading.Thread.Sleep(3000);
+                ViewBag.Message = "E-posta adresinize sıfırlama linki gönderildi.";
+                ViewMessageViewModel mesaj = new ViewMessageViewModel()
+                {
+                    Message = ViewBag.Message,
+                };
+                return RedirectToAction("Message", "Home", mesaj);
+            }
+            else
+            {
+                ViewBag.Message = "E-posta adresinize kayıtlı üyelik bulunamadı.";
+                ViewMessageViewModel mesaj = new ViewMessageViewModel()
+                {
+                    Message = ViewBag.Message,
+                };
+                return RedirectToAction("Message", "Home", mesaj);
+            }
+            
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string userId, int activationCode)
+        {
+            var email = _dbContext.Users.Where(a => a.Id == userId).FirstOrDefault();
+            ResetPasswordViewModel resetPasswordViewModel = new ResetPasswordViewModel()
+            {
+                Email = email.Email
+            };
+            return View(resetPasswordViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPasswordAsync(ResetPasswordViewModel resetPasswordViewModel)
+        {
+            var user = _dbContext.Users.Where(a => a.Email == resetPasswordViewModel.Email).FirstOrDefault();
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, resetPasswordViewModel.Password);
+            if (!result.Succeeded)
+            {
+                ViewBag.Message = "Şifre yenileme başarısız.";
+                ViewMessageViewModel mesaj = new ViewMessageViewModel()
+                {
+                    Message = ViewBag.Message,
+                };
+                return RedirectToAction("Message", "Home", mesaj);
+            }
+
+
+            return View("Login");
+        }
+
+
 
         [HttpGet]
         public async Task<IActionResult> Profile()
@@ -255,11 +422,7 @@ namespace OnionBase.Presentation.Controllers
             return RedirectToAction("Profile");
         }
 
-        [HttpGet]
-        public IActionResult ForgetPassword()
-        {
-            return View();
-        }
+
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult CreateRole()
@@ -384,7 +547,9 @@ namespace OnionBase.Presentation.Controllers
         {
             var name = User.Identity.Name;
             var userDetail = await _userManager.FindByNameAsync(name);
-            var currentUsersOrders = _dbContext.Orders.Where(x => x.CustomerId == userDetail.Id).ToList();
+            var currentUsersOrders = _dbContext.Orders.Include(a => a.OrderDetails)
+                .ThenInclude(od => od.ProductVariant)
+                .ToList();
             return View(currentUsersOrders);
         }
     }
